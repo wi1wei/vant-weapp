@@ -61,6 +61,16 @@ VantComponent({
       value: true,
     },
     theme: String,
+    autoFocus: Boolean,
+    focus: Boolean,
+    selectionStart: {
+      type: Number,
+      value: -1,
+    },
+    selectionEnd: {
+      type: Number,
+      value: -1,
+    },
   },
   data: {
     currentValue: '',
