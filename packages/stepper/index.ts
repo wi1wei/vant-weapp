@@ -77,6 +77,7 @@ VantComponent({
       type: Number,
       value: -1,
     },
+    cursor: Number,
   },
 
   data: {
