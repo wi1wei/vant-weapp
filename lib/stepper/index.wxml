@@ -21,6 +21,7 @@
     style="{{ computed.inputStyle({ buttonSize, inputWidth }) }}"
     value="{{ currentValue }}"
     focus="{{ focus }}"
+    cursor="{{ cursor }}"
     auto-focus="{{ autoFocus }}"
     selection-start="{{ selectionStart }}"
     selection-end="{{ selectionEnd }}"
