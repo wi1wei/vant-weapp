@@ -2,6 +2,10 @@
   <van-stepper value="{{ 1 }}" />
 </van-cell>
 
+<van-cell center title="自动选中">
+  <van-stepper value="{{ 123 }}" auto-selected/>
+</van-cell>
+
 <van-cell center title="步长设置">
   <van-stepper value="{{ 1 }}" step="2" />
 </van-cell>
