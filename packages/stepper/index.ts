@@ -67,21 +67,17 @@ VantComponent({
       value: true,
     },
     theme: String,
-    autoFocus: Boolean,
-    focus: Boolean,
-    selectionStart: {
-      type: Number,
-      value: -1,
+    autoSelected: {
+      type: Boolean,
+      value: false,
     },
-    selectionEnd: {
-      type: Number,
-      value: -1,
-    },
-    cursor: Number,
   },
 
   data: {
     currentValue: '',
+    selectionStart: -1,
+    selectionEnd: -1,
+    focus: false,
   },
 
   created() {
@@ -97,6 +93,15 @@ VantComponent({
       if (!equal(value, currentValue)) {
         this.setData({ currentValue: this.format(value) });
       }
+    },
+
+    onClickOverlay() {
+      const { currentValue } = this.data;
+      this.setData({
+        focus: true,
+        selectionStart: 0,
+        selectionEnd: currentValue.toString().length ?? -1,
+      });
     },
 
     check() {
@@ -128,6 +133,9 @@ VantComponent({
     },
 
     onBlur(event: WechatMiniprogram.InputBlur) {
+      this.setData({
+        focus: false,
+      });
       const value = this.format(event.detail.value);
       this.emitChange(value);
       this.$emit('blur', {

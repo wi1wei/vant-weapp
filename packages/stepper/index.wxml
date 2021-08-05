@@ -1,5 +1,5 @@
-<wxs src="../wxs/utils.wxs" module="utils" />
-<wxs src="./index.wxs" module="computed" />
+<wxs src="../wxs/utils.wxs" module="utils"/>
+<wxs src="./index.wxs" module="computed"/>
 
 <view class="{{ utils.bem('stepper', [theme]) }} custom-class">
   <view
@@ -15,21 +15,27 @@
   >
     <slot name="minus" />
   </view>
-  <input
-    type="{{ integer ? 'number' : 'digit' }}"
-    class="input-class {{ utils.bem('stepper__input', { disabled: disabled || disableInput }) }}"
-    style="{{ computed.inputStyle({ buttonSize, inputWidth }) }}"
-    value="{{ currentValue }}"
-    focus="{{ focus }}"
-    cursor="{{ cursor }}"
-    auto-focus="{{ autoFocus }}"
-    selection-start="{{ selectionStart }}"
-    selection-end="{{ selectionEnd }}"
-    disabled="{{ disabled || disableInput }}"
-    bindinput="onInput"
-    bind:focus="onFocus"
-    bind:blur="onBlur"
-  />
+  <view style="position: relative;display:inline-block;">
+    <view
+      wx:if="{{!disabled && !disableInput && !focus && autoSelected}}"
+      bind:tap="onClickOverlay"
+      style="position: absolute;left: 0;top: 0;z-index: 100;height: 100%;width: 100%">
+    </view>
+    <input
+      type="{{ integer ? 'number' : 'digit' }}"
+      class="input-class {{ utils.bem('stepper__input', { disabled: disabled || disableInput }) }}"
+      style="{{ computed.inputStyle({ buttonSize, inputWidth }) }}"
+      value="{{ currentValue }}"
+      disabled="{{ disabled || disableInput }}"
+      focus="{{ focus }}"
+      selection-start="{{ selectionStart }}"
+      selection-end="{{ selectionEnd }}"
+      bindinput="onInput"
+      bind:focus="onFocus"
+      bind:blur="onBlur"
+    />
+  </view>
+
   <view
     wx:if="{{ showPlus }}"
     data-type="plus"

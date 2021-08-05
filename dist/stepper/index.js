@@ -61,20 +61,16 @@ VantComponent({
       value: true,
     },
     theme: String,
-    autoFocus: Boolean,
-    focus: Boolean,
-    selectionStart: {
-      type: Number,
-      value: -1,
+    autoSelected: {
+      type: Boolean,
+      value: false,
     },
-    selectionEnd: {
-      type: Number,
-      value: -1,
-    },
-    cursor: Number,
   },
   data: {
     currentValue: '',
+    selectionStart: -1,
+    selectionEnd: -1,
+    focus: false,
   },
   created() {
     this.setData({
@@ -87,6 +83,18 @@ VantComponent({
       if (!equal(value, currentValue)) {
         this.setData({ currentValue: this.format(value) });
       }
+    },
+    onClickOverlay() {
+      var _a;
+      const { currentValue } = this.data;
+      this.setData({
+        focus: true,
+        selectionStart: 0,
+        selectionEnd:
+          (_a = currentValue.toString().length) !== null && _a !== void 0
+            ? _a
+            : -1,
+      });
     },
     check() {
       const val = this.format(this.data.currentValue);
@@ -112,6 +120,9 @@ VantComponent({
       this.$emit('focus', event.detail);
     },
     onBlur(event) {
+      this.setData({
+        focus: false,
+      });
       const value = this.format(event.detail.value);
       this.emitChange(value);
       this.$emit(
