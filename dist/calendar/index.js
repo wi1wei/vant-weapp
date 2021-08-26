@@ -127,7 +127,7 @@ VantComponent({
   },
   created() {
     this.setData({
-      currentDate: this.getInitialDate(),
+      currentDate: this.getInitialDate(this.data.defaultDate),
     });
   },
   mounted() {
