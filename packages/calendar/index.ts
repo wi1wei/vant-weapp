@@ -132,7 +132,7 @@ VantComponent({
 
   created() {
     this.setData({
-      currentDate: this.getInitialDate(),
+      currentDate: this.getInitialDate(this.data.defaultDate),
     });
   },
 
@@ -389,6 +389,10 @@ VantComponent({
         // @ts-ignore
         this.$emit('confirm', copyDates(this.data.currentDate));
       });
+    },
+
+    onClickSubtitle(event: WechatMiniprogram.TouchEvent) {
+      this.$emit('click-subtitle', event);
     },
   },
 });
