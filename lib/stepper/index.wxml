@@ -1,5 +1,5 @@
-<wxs src="../wxs/utils.wxs" module="utils"/>
-<wxs src="./index.wxs" module="computed"/>
+<wxs src="../wxs/utils.wxs" module="utils" />
+<wxs src="./index.wxs" module="computed" />
 
 <view class="{{ utils.bem('stepper', [theme]) }} custom-class">
   <view
@@ -13,7 +13,7 @@
     bind:touchstart="onTouchStart"
     bind:touchend="onTouchEnd"
   >
-    <slot name="plus"/>
+    <slot name="minus" />
   </view>
   <view style="position: relative;display:inline-block;">
     <view
@@ -47,6 +47,6 @@
     bind:touchstart="onTouchStart"
     bind:touchend="onTouchEnd"
   >
-    <slot name="minus"/>
+    <slot name="plus" />
   </view>
 </view>

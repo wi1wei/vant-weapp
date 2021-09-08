@@ -1,5 +1,40 @@
 # 更新日志
 
+### [1.8.4](https://github.com/youzan/vant-weapp/compare/v1.8.3...v1.8.4)
+
+`2021-09-07`
+
+**Bug Fixes**
+
+- page-scroll: 修复 getCurrentPage 为空时报错 [#4458](https://github.com/youzan/vant-weapp/issues/4458)
+
+**Features**
+
+- Field: 新增 clear-trigger 属性 [#4461](https://github.com/youzan/vant-weapp/issues/4461)
+- Search: 新增 clear-icon 属性 [#4463](https://github.com/youzan/vant-weapp/issues/4463)
+- Search: 新增 clear-trigger 属性 [9e17b13](https://github.com/youzan/vant-weapp/commit/9e17b13164e57ff09140d755870853f702a89a39)
+- Slider: 新增 range 属性 [#4442](https://github.com/youzan/vant-weapp/issues/4442)
+
+### [v1.8.3](https://github.com/youzan/vant-weapp/compare/v1.8.2...v1.8.3)
+
+`2021-08-30`
+
+**Bug Fixes**
+
+- Canlendar: 修复 default-date 属性失效问题 [#4430](https://github.com/youzan/vant-weapp/issues/4430)
+- ShareSheet: 调整 overlayStyle 属性类型为string [8c408e2](https://github.com/youzan/vant-weapp/commit/8c408e23030e65a0baf62f0b21fb8ed3f2c9df67)
+- Stepper: 调整 minus/plus slots 位置 [#4427](https://github.com/youzan/vant-weapp/issues/4427)
+- Sticky: 修复 root 为 null 时，读取root.top报错问题 [#4433](https://github.com/youzan/vant-weapp/issues/4433)
+- Calendar: 调整 minDate 和 maxDate 传值类型为Number [37d8e69](https://github.com/youzan/vant-weapp/commit/37d8e697c9e3d985b926f68553b8afbb5c0a0569)
+
+### Features
+
+- Popup: 新增 lock-scroll 属性 [#4384](https://github.com/youzan/vant-weapp/issues/4384)
+
+### Performance Improvements
+
+- Radio: label 的 margin-left 改为 padding-left，增大可点击区域，增强用户体验 [#4165](https://github.com/youzan/vant-weapp/issues/4165)
+
 ### [v1.8.2](https://github.com/youzan/vant-weapp/compare/v1.8.1...v1.8.2)
 
 `2021-08-18`
